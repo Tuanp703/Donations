@@ -1,0 +1,3 @@
+> Network name:    'ropsten-fork'
+> Network id:      3
+> contract address:    0xfdf087e45281Db3067B7933dF41849F746906BC4

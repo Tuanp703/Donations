@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>ETH FUND ME | Tuan Phan</title>
+
+    <!-- Bootstrap -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      main {
+        margin-top: 60px;
+      }
+
+      #content {
+        display: none;
+      }
+
+      form {
+        width: 350px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-bottom: 0px;
+      }
+
+      #completedTaskList .content {
+        color: grey;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://www.linkedin.com/in/tuanphan/" target="_blank">ETH FUND ME | Tuan Phan | Consensys Blockchain Developer Bootcamp 2019</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+          <small><a class="nav-link" href="#">Active Metamask Account = <span id="account"></span></a></small>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <main role="main" class="col-lg-12 d-flex justify-content-center">
+          <div id="loader" class="text-right">
+            <p class="text-right">L O A D I N G...</p>
+    
+          </div>
+
+          <div id="purpose" class="col-lg-6 control-label">
+            <p>ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract)
+               to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee 
+               greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until the amount 
+               raised is met, exceeded, or until the smart contract is suspended or end by the owner.</p>
+            
+            <hr size="30">
+            
+            <p>The ETH Fund Me process works as follow:</p>
+            <ol>
+              <li>A beneficiary must specify the amount to raise.</li>
+              <li>A beneficiary must escrow a commitment fee of greater than 10% of the amount to be raised in order to be accepted by the smart
+                 contract to start the fundraising process. <i>If accepted, the beneficiary address and the donation limit should be displayed.</i></li>
+              <li>One of more donors can donate to the contract for the beneficiary. There are no restrictions on the donation amounts except that a
+                 <i>beneficiary must have been committed (e.g., selected) and the donor cannot be the contract owner or beneficiary</i>.</li>
+              <li>Donations can be collected until the Amount to Raise has been met, at which time it is then automatically settled.</li>
+              <li>In the settlement, the contract owner gets 10% of the total donations collected and the beneficiary gets the remaining 90%.</li>
+            </ol>
+            
+            <hr size="30">
+              <p>Emergency Circuit suspends any donation until released.</p>
+              <p>Unlock Transfer unlocks the reentrancy protection for transfer of funds to owner and beneficiary. Must already be in active emergency circuit for unlocking to take place.</p>
+              <p>End Contract ends the contract via a selfdestruct and returns all remaining contract values to the owner.</p>            
+            
+          </div>
+          
+          <hr size="30">
+
+          <div id="content">
+      
+              <h1>Beneficiary Section</h1>
+              <p>Can be anyone except the owner until a beneficiary is selected (e.g., not 0x0).</p>
+              <p class="label">Beneficiary address = <span id="beneficiary"></span></p>
+              <p class="label">Contract balance = <span id="newBalance"></span> ethers</p>
+
+              <input id="donationLimit" type="number" placeholder="Donation Limit in wei" required>
+              <input id="escrow" type="number" placeholder="Escrow Payment in wei" required>
+              <p></p>
+
+              <form onsubmit="App.bookBeneficiary(); return false;">
+                  <input type="submit" value="Book My Fundraising">
+              </form>
+              
+              <hr size="30">
+
+              <h1>Donor Section</h1>
+              <p>Can be run by anyone except the owner and beneficiary.</p>
+              <p class="label">Donations raised to date = <span id="donationAmt"></span> wei</p>
+              <p class="label">Donations raised to date = <span id="donationAmtEth"></span> ethers</p>
+              <p class="label">Donation limit = <span id="donationMax"></span> ethers</p>
+
+              <label for="name" class="col-lg-2 control-label">Donation Amount: </label>
+              <input id="donation" type="number" placeholder="Donations in wei" required>
+              <p></p>
+
+              <form onsubmit="App.makeDonation(); return false;">
+                  <input type="submit" value="Submit Donation">
+              </form>
+
+              <hr size="30">
+
+              <h1>Owner Section</h1>
+              <p>Can only be triggered by the owner.</p>     
+              <p class="label">Owner address = <span id="owner"></span></p>
+              
+              <p class="label">Status = <span id="emergency"></span></p>
+              <p class="label">Status = <span id="lock"></span></p>
+              <form onsubmit="App.setEmergencyOnOff(); return false;">
+                  <input type="submit" value="Toggle Emergency Circuit" >
+              </form>          
+
+              <form onsubmit="App.setUnlockOnOff(); return false;">
+                  <input type="submit" value="Toggle Unlock ON/OFF" >
+              </form>
+
+              <form onsubmit="App.endContract(); return false;">
+                  <input type="submit" value="End Contract" >
+              </form>
+
+          </div>
+
+
+        </main>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
