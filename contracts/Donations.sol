@@ -164,7 +164,6 @@ library SafeMath {
 contract FromParent {
     address payable public owner;
     address payable public beneficiary = address(0);    // Set beneficiary to null
-    // address payable public beneficiary = 0x7eE05E06Ab36C97c1E53Ad23F5660ECA8ce28C46;    // Set beneficiary to somthing for testing
 
     constructor() public { // Set at start of deployment
         owner = msg.sender;             // Set the owner of contract
@@ -202,8 +201,6 @@ contract Donations is FromParent {
 	uint private escrowAmt;         // Track the escrow amount from the beneficiary
 	uint private beneficiaryAmt;    // Track the beneficiary amount from the total donations
 	uint private ownerAmt;          // Track the owner amount from the total donations
-    
-//    uint public testNum;                // Passthru var for testing
 
     // Setup modifier for only owner 
     modifier isAdmin() {
