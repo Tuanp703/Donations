@@ -69,7 +69,7 @@ Once the above two changes have been made in the truffle-config.js, you can then
 truffle migrate --network ropsten
 ```
 
-For your convenience, I have also deployed my final version of the contracts at address 0xfdf087e45281Db3067B7933dF41849F746906BC4 of the Ropsten network. The corresponding address can be found [here](/docs/deployed_addresses.txt). You should connect the front end aonly after you have successfully migrated the project. On Ropsten network, the state variables of the frontend update sporadically and you may need to force browser refresh. However, the dApp should work normally for the Ganache local blockchain.
+For your convenience, I have also deployed my final version of the contracts at address 0xfdf087e45281Db3067B7933dF41849F746906BC4 of the Ropsten network. The corresponding address can be found [here](/deployed_addresses.txt). You should connect the front end aonly after you have successfully migrated the project. On Ropsten network, the state variables of the frontend update sporadically and you may need to force browser refresh. However, the dApp should work normally for the Ganache local blockchain.
 
 For free test ethers for the Ropsten, you can go to https://teth.bitaps.com/ and get an ether every minute!
 
