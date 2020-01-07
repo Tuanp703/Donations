@@ -1,5 +1,5 @@
 # Avoiding Common Attacks
-This file contains an overview of the measures I have taken to secure these contracts agains common attacks.
+This file contains an overview of the measures I have taken to secure these contracts against common attacks.
 
 ## Safeguarding against Reentrancy
 I incorporated Mutex lock as a primary safeguard against reentrancy attack. I also provided an owner control unlocking function for the lock to release the contract in case of an improbable inert situation.
