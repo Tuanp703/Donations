@@ -9,5 +9,5 @@ Additionally, I also utilized checks-effects-interactions pattern by preventing 
 ## Usage of SafeMath
 I incorporated SafeMath functions (add, sub, div) from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/math) into my contract as SafeMath library for usage in calculations to prevent any possible overflows and underflows. I chose to directly incorporate the library so that I can use the code for demonstration.
 
-## Denial of Services
+## Inefficient Usage of Resources and Preventing Attempts to Consume Resources
 Resources on a public blockchain are expensive to maintain. Accordingly, we do not want people to setup many fundraising events without having a reasonable chance of attaining the prescribed goal. The process of requiring an escrow of 10% of the planned funraising amount from the beneficiary cuts down abuse or spam of the dApp. In many ways this approach is similar to how gas are needed to run transactions on Ethereum.
