@@ -272,14 +272,7 @@ contract Donations is FromParent {
 
         // emit LogSetBeneficiary(beneficiary);
         // return (true);
-    }
-
-    // This is a random development function to be removed
-    function setTestBeneficiary() public payable returns (bool) {
-        beneficiary = msg.sender;
-        newBalance = address(this).balance;
-        emit LogRefresh(true);
-    }    
+    } 
 
     // This function accepts donations from Users
     function sendDonations() notInEmergency public payable returns (bool) {
