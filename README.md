@@ -94,7 +94,7 @@ c. Any donor can donate and up to the donation limit or higher. This portion als
 d. Transfer is made when donation limit has been met or exceeded. This test checks the proper transfer calculation is performed and made in the settlement to the owner and beneficiary accounts when the aggregated donations have equaled or exceeded the donation limit.
 
 #### Testing Fundraising Time Expiration
-In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.png)|from 604,800 seconds (7 days) to 60 or 120 seconds for testing. YOu will need to compile and reploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
+In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.PNG)|from 604,800 seconds (7 days) to 60 or 120 seconds for testing. YOu will need to compile and reploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
 
 ### Running the frontend
 Once the contracts have been succesfully migrated to either the local blockchain using Ganache-cli or onto Ropsten, the frontend can then be run.
