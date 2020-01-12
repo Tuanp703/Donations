@@ -34,7 +34,7 @@ We need Truffle to compile, migrate and test the smart contracts. We need Ganach
 
 Metamask also needs to be installed to interact with the application inside a browser. Metamask should also be setup to connect to the local blockchain at HTTP://127.0.0.1:8545 using the built-in RPC.
 
-### Run the prerequisites
+### Run the Prerequisites
 With the prerequisites installed, we need to run a local Ganache-cli instance. To do this, open two different terminal windows.
 In the first window, run Ganache-cli and wait for it to be started. Copy over the mnemonic, as this needs to be entered into Metamask for local testing. Please note that Metamask may require a reset of the account connected to the local blockchain after the setup to insure the nonce is sync to local blockchain. This is needed to ensure a clean network state - [https://metamask.zendesk.com/hc/en-us/articles/360015488891-Resetting-an-Account]
 
@@ -92,15 +92,18 @@ truffle test
 
 A total of six formal tests were built using Javascript and to provide complete testing coverage of contract functions including:
 
-    a. Checking that the constructor is setting the owner as the deployer of the contract. This test uses the account of the contract to check if the owner account captured during initialization is the same.
-    b. Set beneficiary and related conditions are met. This portion performs two tests. First, it uses a second account and sends to the contract the minimum amount requires to establish the donation limit. Secondly, it also tests to ensure that the escrow payment cannot be the same or greater than the donation limit.
-    c. Any donor can donate and up to the donation limit or higher. This portion also performs two tests. First, it checks that the donor cannot be the contract owner or the beneficiary. Secondly, it ensures that the donor can send in any donor amount.
-    d. Transfer is made when donation limit has been met or exceeded. This test checks the proper transfer calculation is performed and made in the settlement to the owner and beneficiary accounts when the aggregated donations have equaled or exceeded the donation limit.
+a. Checking that the constructor is setting the owner as the deployer of the contract. This test uses the account of the contract to check if the owner account captured during initialization is the same.
+
+b. Set beneficiary and related conditions are met. This portion performs two tests. First, it uses a second account and sends to the contract the minimum amount requires to establish the donation limit. Secondly, it also tests to ensure that the escrow payment cannot be the same or greater than the donation limit.
+
+c. Any donor can donate and up to the donation limit or higher. This portion also performs two tests. First, it checks that the donor cannot be the contract owner or the beneficiary. Secondly, it ensures that the donor can send in any donor amount.
+
+d. Transfer is made when donation limit has been met or exceeded. This test checks the proper transfer calculation is performed and made in the settlement to the owner and beneficiary accounts when the aggregated donations have equaled or exceeded the donation limit.
 
 #### Testing Fundraising Time Expiration
 In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.PNG) from 604,800 seconds (7 days) to 60 or 120 seconds for testing. You will need to compile and reploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
 
-### Running the frontend
+### Running the Frontend
 Once the contracts have been succesfully migrated to either the local blockchain using Ganache-cli or onto Ropsten, the frontend can then be run.
 ```
 npm run dev
@@ -111,7 +114,7 @@ The frontend can then be accessed at `http://localhost:3000/`. Please note that 
 #### Testing using Ganache
 If you are connecting with Ganache, be sure to import the Ganache accounts into MetaMask using the generated mnemonic. Please note that with Ganache, Metamask may require a reset of the acccount connected to the local blockchain after the setup to insure the nonce is sync to local blockchain. This is needed to ensure a clean network state - [https://metamask.zendesk.com/hc/en-us/articles/360015488891-Resetting-an-Account]
 
-## Application usage
+## Application Usage
 The application has three sections:
 
 a. Beneficiary Section - Allow for any valid users to transact with the contract and nominate self as the beneficiary for his/her own fundraising. To be the beneficiary, the user must submit an donation limit to be raised and an escrow payment (e.g., a commitment fee) of greater than 10% of the donation limit. The escrow payment is needed to prevent spamming of contract. When beneficiary has been accepted by the contract, the beneficiary address should be displayed along with the contract balance. When no beneficiary has been selected, the beneficiary address should be zero. The Book_My_Fundraising button sends the entered donation limit and escrow payment to Metamask for confirmation and then to the contract.
