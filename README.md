@@ -1,6 +1,6 @@
 # ETH FUND ME
 
-ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until the amount raised is met, exceeded, or until the smart contract is suspended or end by the owner.
+ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until the amount raised is met or exceeded, the fundraising time limit has been exceeded, or until the smart contract is suspended or end by the owner.
 
 For a video demonstration, refer to the video presentation shown [here](https://1drv.ms/p/s!Athwhc7bxjKBhZMMc7n27yt0hsVL6Q?e=S37rkb). The video file may take a bit of time to download (e.g. over 552 MB) and you need Powerpoint 2016 or later.
 
