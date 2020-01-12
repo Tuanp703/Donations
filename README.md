@@ -14,7 +14,11 @@ The contract also incorporates SafeMath from OpenZeppelin as library for mathema
 More information on the design decisions of this decentralized application can be found [here](/docs/design_pattern_decisions.md), while information on how common attacks are avoided can be found [here](/docs/avoiding_common_attacks.md).
 
 ## The Process
-ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until i) the amount raised is met or exceeded; ii) the fundraising time limit has been exceeded; iii) or the smart contract is suspended or end by the owner.
+ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until:
+
+i) the amount raised is met or exceeded;
+ii) the fundraising time limit has been exceeded;
+iii) or the smart contract is suspended or end by the owner.
 
 The ETH Fund Me process works as follow:
 
@@ -89,12 +93,15 @@ truffle test
 A total of six tests were built using Javascript and to provide complete testing coverage of contract functions including:
 
 a. Checking that the constructor is setting the owner as the deployer of the contract. This test uses the account of the contract to check if the owner account captured during initialization is the same.
+
 b. Set beneficiary and related conditions are met. This portion performs two tests. First, it uses a second account and sends to the contract the minimum amount requires to establish the donation limit. Secondly, it also tests to ensure that the escrow payment cannot be the same or greater than the donation limit.
+
 c. Any donor can donate and up to the donation limit or higher. This portion also performs two tests. First, it checks that the donor cannot be the contract owner or the beneficiary. Secondly, it ensures that the donor can send in any donor amount.
+
 d. Transfer is made when donation limit has been met or exceeded. This test checks the proper transfer calculation is performed and made in the settlement to the owner and beneficiary accounts when the aggregated donations have equaled or exceeded the donation limit.
 
 #### Testing Fundraising Time Expiration
-In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.PNG) from 604,800 seconds (7 days) to 60 or 120 seconds for testing. YOu will need to compile and reploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
+In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.PNG) from 604,800 seconds (7 days) to 60 or 120 seconds for testing. You will need to compile and reploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
 
 ### Running the frontend
 Once the contracts have been succesfully migrated to either the local blockchain using Ganache-cli or onto Ropsten, the frontend can then be run.
