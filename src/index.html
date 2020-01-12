@@ -61,8 +61,8 @@
           <div id="purpose" class="col-lg-6 control-label">
             <p>ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract)
                to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee 
-               greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until the amount 
-               raised is met, exceeded, or until the smart contract is suspended or end by the owner.</p>
+               greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until i) the amount 
+               raised is met or exceeded; ii) the fundraising time limit has been exceeded; iii) or the smart contract is suspended or end by the owner.</p>
             
             <hr size="30">
             
@@ -70,10 +70,12 @@
             <ol>
               <li>A beneficiary must specify the amount to raise.</li>
               <li>A beneficiary must escrow a commitment fee of greater than 10% of the amount to be raised in order to be accepted by the smart
-                 contract to start the fundraising process. <i>If accepted, the beneficiary address and the donation limit should be displayed.</i></li>
+                 contract to start the fundraising process. <i>If accepted, the beneficiary address and the donation limit should be displayed. 
+                 The fundraising is valid for only 7 days, or at least 604,800 seconds from accepted time.</i></li>
               <li>One of more donors can donate to the contract for the beneficiary. There are no restrictions on the donation amounts except that a
                  <i>beneficiary must have been committed (e.g., selected) and the donor cannot be the contract owner or beneficiary</i>.</li>
-              <li>Donations can be collected until the Amount to Raise has been met, at which time it is then automatically settled.</li>
+              <li>Donations can be collected until the Amount to Raise has been met, or when the fundraising time limit has exceeded,
+                  at which time it is then automatically settled.</li>
               <li>In the settlement, the contract owner gets 10% of the total donations collected and the beneficiary gets the remaining 90%.</li>
             </ol>
             

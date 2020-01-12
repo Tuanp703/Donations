@@ -14,14 +14,14 @@ The contract also incorporates SafeMath from OpenZeppelin as library for mathema
 More information on the design decisions of this decentralized application can be found [here](/docs/design_pattern_decisions.md), while information on how common attacks are avoided can be found [here](/docs/avoiding_common_attacks.md).
 
 ## The Process
-ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until the amount raised is met, exceeded, or until the smart contract is suspended or end by the owner.
+ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until i) the amount raised is met or exceeded; ii) the fundraising time limit has been exceeded; iii) or the smart contract is suspended or end by the owner.
 
 The ETH Fund Me process works as follow:
 
 1. A beneficiary must specify the amount to raise.
-2. A beneficiary must escrow a commitment fee of greater than 10% of the amount to be raised in order to be accepted by the smart contract to start the fundraising process. If accepted, the beneficiary address and the donation limit should be displayed.
+2. A beneficiary must escrow a commitment fee of greater than 10% of the amount to be raised in order to be accepted by the smart contract to start the fundraising process. If accepted, the beneficiary address and the donation limit should be displayed. The fundraising is valid for only 7 days, or at least 604,800 seconds from accepted time.
 3. One of more donors can donate to the contract for the beneficiary. There are no restrictions on the donation amounts except that a beneficiary must have been committed (e.g., selected) and the donor cannot be the contract owner or beneficiary.
-4. Donations can be collected until the Amount to Raise has been met, at which time it is then automatically settled.
+4. Donations can be collected until the Amount to Raise has been met, or when the fundraising time limit has exceeded, at which time it is then automatically settled.
 5. In the settlement, the contract owner gets 10% of the total donations collected and the beneficiary gets the remaining 90%.
 
 ## Local Installation

@@ -197,10 +197,13 @@ contract Donations is FromParent {
     uint public oldDonationAmt;    // Track donation amount before withdraw payout
     uint public oldBalance;         // Track the balance before withdraw payout
     uint public newBalance;         // Track the balance after withdraw payout
+    uint public cnow;
 
+    uint private round_expired;     // Track time to expire round
 	uint private escrowAmt;         // Track the escrow amount from the beneficiary
 	uint private beneficiaryAmt;    // Track the beneficiary amount from the total donations
 	uint private ownerAmt;          // Track the owner amount from the total donations
+	uint private duration;          // Set the valid duration for a round of fundraising
 
     // Setup modifier for only owner 
     modifier isAdmin() {
@@ -241,6 +244,7 @@ contract Donations is FromParent {
 		donationAmt  = 0;				    // Set donation to zero
 		isAtLimit = false;                  // Set donation flag as false
 		lock = false;                       // Set default lock state as false
+		duration = 604800;                  // Set default fundraising time duration in 7 days in seconds (604800) from now
     }
 
     // Setup fallback to protect contract
@@ -269,32 +273,43 @@ contract Donations is FromParent {
         oldDonationAmt = 0;             // Set to zero
         oldBalance = 0;             // Set to zero
         newBalance = address(this).balance;         // Update current contract balance
-
-        // emit LogSetBeneficiary(beneficiary);
-        // return (true);
-    } 
+        round_expired = now + duration;             // Duration is a fix valued
+    }
 
     // This function accepts donations from Users
+    // The function also checks if the fundraising has expired and limit has not been reached
     function sendDonations() notInEmergency public payable returns (bool) {
+        require(round_expired != 0, 'Must have active fundraising.');        // Check if active fundraising exists
         require(hasBeneficiary == true, 'Beneficiary has not been defined.');  // Donation must have a beneficiary
         require(isAtLimit == false, 'Donation limit has been reached.');    // Limit has not been reached
         require(msg.sender != owner, 'Owner cannot be a participant.');   // Owner cannot be a participant
         require(msg.sender != beneficiary, 'Beneficiary cannot be a participant.');   // Beneficiary cannot be a participant
 		
-		balances[msg.sender] = balances[msg.sender].add(msg.value);      // Track the donated amt from the user.
-		donationAmt = donationAmt.add(msg.value);  // Track the current donations
+		cnow = now; //This variable for remix testing
+        balances[msg.sender] = balances[msg.sender].add(msg.value);      // Track the donated amt from the user.
+        donationAmt = donationAmt.add(msg.value);  // Track the current donations
         newBalance = address(this).balance;         // Update current contract balance
-		
-        // Check if donation limit has been reached
-		if (donationAmt >= targetAmt) {
-    		    isAtLimit = true;     // Set donation flag as having reach the target
-                oldDonationAmt = donationAmt;   // Set the old donation amount - Use for testing
-                oldBalance = address(this).balance;  // Set the before withdraw balance - Use for testing
-    		    withdrawDonations();  // Call withdraw to faciliate payments.
-    	} else {
-    		    isAtLimit = false;     // Set donation flag as not having reach the target
-    	}
-		return (true);
+        
+        // Check if fundraising time has not reached limit
+		if (now <= round_expired) {
+            // Check if donation limit has been reached
+    		if (donationAmt >= targetAmt) {
+        		    isAtLimit = true;     // Set donation flag as having reach the target
+                    oldDonationAmt = donationAmt;   // Set the old donation amount - Use for testing
+                    oldBalance = address(this).balance;  // Set the before withdraw balance - Use for testing
+        		    withdrawDonations();  // Call withdraw to faciliate payments.
+        	} else {
+        		    isAtLimit = false;     // Set donation flag as not having reach the target
+        	}
+		} else {
+		    // Time has expired and limit has not been reached.
+            // owner.transfer(address(this).balance);      // time has expired, end fundraising and transfer escrow to owner.
+            round_expired = 0;           // Clear time
+            isAtLimit = true;     // Forced Set donation flag as having reach the target
+            oldDonationAmt = donationAmt;   // Set the old donation amount - Use for testing
+            oldBalance = address(this).balance;  // Set the before withdraw balance - Use for testing
+            withdrawDonations();  // Call withdraw to faciliate payments.
+		}
     }
 
     // This function withdraws for the beneficiary and owner
