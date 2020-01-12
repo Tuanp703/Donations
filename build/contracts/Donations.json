@@ -18965,10 +18965,45 @@
       "links": {},
       "address": "0xb09bCc172050fBd4562da8b229Cf3E45Dc3045A6",
       "transactionHash": "0x1430290a97bb32fd660b6cf84454c19a37b4fadf3502bf05934d6a4259a119ca"
+    },
+    "1578829203344": {
+      "events": {
+        "0x334f7e0d888fe4a5e40f6b616305f516366880bdf53976e49e69067b2d8389d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "refresh",
+              "type": "bool"
+            }
+          ],
+          "name": "LogRefresh",
+          "type": "event",
+          "signature": "0x334f7e0d888fe4a5e40f6b616305f516366880bdf53976e49e69067b2d8389d8"
+        },
+        "0x95008bfcf5074232154796de518fa0b31dff2449c62f6b0f04dad0afe43e6d5e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "accountAddress",
+              "type": "address"
+            }
+          ],
+          "name": "LogSetBeneficiary",
+          "type": "event",
+          "signature": "0x95008bfcf5074232154796de518fa0b31dff2449c62f6b0f04dad0afe43e6d5e"
+        }
+      },
+      "links": {},
+      "address": "0xCfEB869F69431e42cdB54A4F4f105C19C080A601",
+      "transactionHash": "0xab59c9cbad36b8a77450c21be5bb29c371f7d317c7505edf73249f1a1ab39a70"
     }
   },
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-01-12T02:10:06.701Z",
+  "updatedAt": "2020-01-12T11:41:30.116Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
