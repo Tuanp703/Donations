@@ -197,7 +197,6 @@ contract Donations is FromParent {
     uint public oldDonationAmt;    // Track donation amount before withdraw payout
     uint public oldBalance;         // Track the balance before withdraw payout
     uint public newBalance;         // Track the balance after withdraw payout
-    uint public cnow;
 
     uint private round_expired;     // Track time to expire round
 	uint private escrowAmt;         // Track the escrow amount from the beneficiary
@@ -285,7 +284,6 @@ contract Donations is FromParent {
         require(msg.sender != owner, 'Owner cannot be a participant.');   // Owner cannot be a participant
         require(msg.sender != beneficiary, 'Beneficiary cannot be a participant.');   // Beneficiary cannot be a participant
 		
-		cnow = now; //This variable for remix testing
         balances[msg.sender] = balances[msg.sender].add(msg.value);      // Track the donated amt from the user.
         donationAmt = donationAmt.add(msg.value);  // Track the current donations
         newBalance = address(this).balance;         // Update current contract balance
