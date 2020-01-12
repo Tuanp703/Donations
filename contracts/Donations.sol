@@ -272,7 +272,8 @@ contract Donations is FromParent {
         oldDonationAmt = 0;             // Set to zero
         oldBalance = 0;             // Set to zero
         newBalance = address(this).balance;         // Update current contract balance
-        round_expired = now + duration;             // Duration is a fix valued
+        round_expired = now;             // set round expiration to start with current time.
+        round_expired = round_expired.add(duration);             // Add Duration to round expiration time.
     }
 
     // This function accepts donations from Users
