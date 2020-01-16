@@ -128,6 +128,6 @@ On the initial launch, Metamask will be invoked (and if not already login), the 
 For more help on testing, refer to the video presentation shown [here](https://1drv.ms/p/s!Athwhc7bxjKBhZMMc7n27yt0hsVL6Q?e=S37rkb). The video file may take a bit of time to download (e.g. over 552 MB) and you need Powerpoint 2016 or later.
 
 ## Thank You for Your Time in the Evaluation of my ETH FUND ME dApp. 
-## Please give me all TOP scores and connect wit me on Linkedin!
+## Please give me all TOP scores and connect with me on Linkedin!
 
 ![Thank You Very Much](/docs/img/168956283.jpg)
