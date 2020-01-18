@@ -5,7 +5,7 @@ This file contains an overview of all design patterns used and decisions made du
 My design allows for the contract to operate autonomously and in a decentralized fashion. With exception of the emergency circuit breaker, the contract will handle beneficiary selection, donation collection, and payments to contract owner and beneficiary. I also implemented a self-destruct call which allows the contract to be terminated. This self-destruct is only accessible to the contract owner.
 
 ## Security Analysis
-I submitted the Donations contract for a scan at [SmartCheck] (https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck perfomed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
+I submitted the Donations contract for a scan at [SmartCheck](https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck perfomed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
 
 ![SmartCheck](/docs/img/SmartCheck.PNG)
 
