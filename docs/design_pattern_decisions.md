@@ -4,6 +4,13 @@ This file contains an overview of all design patterns used and decisions made du
 ## Decentralization and Autonomy
 My design allows for the contract to operate autonomously and in a decentralized fashion. With exception of the emergency circuit breaker, the contract will handle beneficiary selection, donation collection, and payments to contract owner and beneficiary. I also implemented a self-destruct call which allows the contract to be terminated. This self-destruct is only accessible to the contract owner.
 
+## Security Analysis
+I submitted the Donations contract for a scan at [SmartCheck] (https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck perfomed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
+
+![SmartCheck](/docs/img/SmartCheck.PNG)
+
+SmartCheck revealed only Severity Level errors. Upon further review, I concluded that none of which requires additionall action.
+
 ## Spamming Prevention
 The issue I noted with traditional ‘go fund me’ applications is that anyone can setup a funding request. As the result, many of these fundme projects just linger and never reach the raised amount, and utimately, end up abandoned. Accordingly they consume and waste valuable resources. By requiring a commitment fee of greater than 10% of the raised amount to be deposited at the start of the fundraising, this approach reduces spamming of the decentralized application similar to how gases are used on Ethereum network.
 
