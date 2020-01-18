@@ -9,7 +9,7 @@ I submitted the Donations contract for a scan at [SmartCheck](https://tool.smart
 
 ![SmartCheck](/docs/img/SmartCheck.PNG)
 
-SmartCheck revealed only Severity Level 1 errors. Upon further review, I concluded that none of which requires additionall action.
+SmartCheck revealed only Severity Level 1 errors. Upon further review, I concluded that none of which requires additional action.
 
 ## Spamming Prevention
 The issue I noted with traditional ‘go fund me’ applications is that anyone can setup a funding request. As the result, many of these fundme projects just linger and never reach the raised amount, and utimately, end up abandoned. Accordingly they consume and waste valuable resources. By requiring a commitment fee of greater than 10% of the raised amount to be deposited at the start of the fundraising, this approach reduces spamming of the decentralized application similar to how gases are used on Ethereum network.
