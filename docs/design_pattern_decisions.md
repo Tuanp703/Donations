@@ -5,11 +5,17 @@ This file contains an overview of all design patterns used and decisions made du
 My design allows for the contract to operate autonomously and in a decentralized fashion. With exception of the emergency circuit breaker, the contract will handle beneficiary selection, donation collection, and payments to contract owner and beneficiary. I also implemented a self-destruct call which allows the contract to be terminated. This self-destruct is only accessible to the contract owner.
 
 ## Security Analysis
-I submitted the Donations contract for a scan at [SmartCheck](https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck perfomed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
+Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I employed automated static and dynamic scanners from SmartDec SmartCheck and from Chainanalysis Securify to further evaluate the security posture of the contracts.
+
+### SmartCheck Scanner Evaluation
+I submitted the Donations contract for a scan at [SmartCheck](https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck performed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
 
 ![SmartCheck](/docs/img/SmartCheck.PNG)
 
 SmartCheck revealed only Severity Level 1 errors. Upon further review, I concluded that none of which requires additional action.
+
+### Securify Scanner Evaluation
+I also submited the same Donations contract for automated vulnerability analysis using [Securify](https://securify.chainsecurity.com/report/51de5b47b1ded508b735e3173cf9d26a2ca8c21bc9d07c0d570630f79979e4af). The analysis revealed ten informational warnings similar to previously identified by SmartCheck.Upong additional code review, I decided that no further action was required.
 
 ## Spamming Prevention
 The issue I noted with traditional ‘go fund me’ applications is that anyone can setup a funding request. As the result, many of these fundme projects just linger and never reach the raised amount, and utimately, end up abandoned. Accordingly they consume and waste valuable resources. By requiring a commitment fee of greater than 10% of the raised amount to be deposited at the start of the fundraising, this approach reduces spamming of the decentralized application similar to how gases are used on Ethereum network.
