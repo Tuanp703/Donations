@@ -5,7 +5,10 @@ This file contains an overview of all design patterns used and decisions made du
 My design allows for the contract to operate autonomously and in a decentralized fashion. With exception of the emergency circuit breaker, the contract will handle beneficiary selection, donation collection, and payments to contract owner and beneficiary. I also implemented a self-destruct call which allows the contract to be terminated. This self-destruct is only accessible to the contract owner.
 
 ## Security Analysis
-Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I employed automated static and dynamic scanners from SmartDec SmartCheck and from Chainanalysis Securify to further evaluate the security posture of the contracts.
+Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized two well-regard automated static and dynamic scanners to further evaluate the security posture of the contracts:
+    
+    1. SmartDec SmartCheck
+    2. ChainAnalysis Securify
 
 ### SmartCheck Scanner Evaluation
 I submitted the Donations contract for a scan at [SmartCheck](https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck performed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
@@ -15,7 +18,7 @@ I submitted the Donations contract for a scan at [SmartCheck](https://tool.smart
 SmartCheck revealed only Severity Level 1 errors. Upon further review, I concluded that none of which requires additional action.
 
 ### Securify Scanner Evaluation
-I also submited the same Donations contract for automated vulnerability analysis using Securify.
+I also submitted the same Donations contract for automated vulnerability analysis using Securify.
 
 ![Securify](/docs/img/Securify.PNG)
 
