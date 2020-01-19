@@ -10,7 +10,7 @@ Due to the nascent nature of blockchain technology and Solidity, additional revi
     1. SmartDec SmartCheck
     2. ChainAnalysis Securify
 
-Overall, the outcomes from both scans indicated that there are no high and critical vulnerabilities exist in the contract.
+Using these scans I am able to adjust and reprogram the contract as needed to eliminate any high or critical vulnerabilities. As of final deployment, there are currently no high or critical vulnerabilities exist in the contract.
 
 ### SmartCheck Scanner Evaluation
 I submitted the Donations contract for a scan at [SmartCheck](https://tool.smartdec.net/scan/3339817f44684fa1bb82aa92e9805445). SmartCheck performed a static analysis for any possible vulnerabilities and other code issues that I may have missed. More information on SmartCheck can be found at https://github.com/smartdec/smartcheck
