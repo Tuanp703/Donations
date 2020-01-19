@@ -15,7 +15,11 @@ I submitted the Donations contract for a scan at [SmartCheck](https://tool.smart
 SmartCheck revealed only Severity Level 1 errors. Upon further review, I concluded that none of which requires additional action.
 
 ### Securify Scanner Evaluation
-I also submited the same Donations contract for automated vulnerability analysis using [Securify](https://securify.chainsecurity.com/report/51de5b47b1ded508b735e3173cf9d26a2ca8c21bc9d07c0d570630f79979e4af). The analysis revealed ten informational warnings similar to previously identified by SmartCheck.Upong additional code review, I decided that no further action was required.
+I also submited the same Donations contract for automated vulnerability analysis using Securify.
+
+![Securify](/docs/img/Securify.PNG)
+
+ The Securify report [Securify Report](https://securify.chainsecurity.com/report/51de5b47b1ded508b735e3173cf9d26a2ca8c21bc9d07c0d570630f79979e4af) revealed that ten informational warnings similar to those previously identified by SmartCheck. Upon additional manual code review, I concluded that no further action was required.
 
 ## Spamming Prevention
 The issue I noted with traditional ‘go fund me’ applications is that anyone can setup a funding request. As the result, many of these fundme projects just linger and never reach the raised amount, and utimately, end up abandoned. Accordingly they consume and waste valuable resources. By requiring a commitment fee of greater than 10% of the raised amount to be deposited at the start of the fundraising, this approach reduces spamming of the decentralized application similar to how gases are used on Ethereum network.
