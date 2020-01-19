@@ -8,7 +8,7 @@ My design allows for the contract to operate autonomously and in a decentralized
 Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized two well-regard automated static and dynamic scanners to further evaluate the security posture of the contracts:
     
     1. SmartDec SmartCheck
-    2. ChainAnalysis Securify
+    2. Chainsecurity Securify
 
 Using these scans I am able to adjust and reprogram the contract as needed to eliminate any high or critical vulnerabilities. As of final deployment, there are currently no high or critical vulnerabilities exist in the contract.
 
