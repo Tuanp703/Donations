@@ -75,9 +75,9 @@ Once the above two changes have been made in the truffle-config.js, you can then
 truffle migrate --network ropsten
 ```
 
-For your convenience, I have also deployed my final version of the contracts at address 0xfdf087e45281Db3067B7933dF41849F746906BC4 of the Ropsten network. The corresponding address can be found [here](/deployed_addresses.txt). You should connect the front end only after you have successfully migrated the project.
+For your convenience, I have also deployed my final version of the contracts at address 0xfdf087e45281Db3067B7933dF41849F746906BC4 of the Ropsten network. The corresponding address can be found [here](/deployed_addresses.txt). You should connect the front-end only after you have successfully migrated the project.
 
-On the Ropsten network, the state variables of the frontend update sporadically, thus you will need to wait more time for LOADING to complete. ![Ropsten Confirmation](/docs/img/Ropsten1.PNG)| ![Ropsten Loading](/docs/img/Ropsten_Loading.PNG)|
+On the Ropsten network, the state variables of the front-end update sporadically, thus you will need to wait more time for LOADING to complete. ![Ropsten Confirmation](/docs/img/Ropsten1.PNG)| ![Ropsten Loading](/docs/img/Ropsten_Loading.PNG)|
 
 Occasionally, you may need to force browser refresh yourself if you are impatient like me. However, the dApp should work normally for the Ganache-cli local blockchain and Ropsten.
 
@@ -101,15 +101,15 @@ c. Any donor can donate and up to the donation limit or higher. This portion als
 d. Transfer is made when donation limit has been met or exceeded. This test checks the proper transfer calculation is performed and made in the settlement to the owner and beneficiary accounts when the aggregated donations have equaled or exceeded the donation limit.
 
 #### Testing Fundraising Time Expiration
-In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.PNG) from 604,800 seconds (7 days) to 60 or 120 seconds for testing. You will need to compile and reploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
+In the constructor of the Donations contract, you can alter the duration variable ![Fundraising Time Limit](/docs/img/Duration.PNG) from 604,800 seconds (7 days) to 60 or 120 seconds for testing. You will need to compile and redeploy to the appropriate network to check this behavior. You can confirm that time has expired when the Beneficiary address has reset to 0x0 and settlement automatically took place.
 
-### Running the Frontend
-Once the contracts have been succesfully migrated to either the local blockchain using Ganache-cli or onto Ropsten, the frontend can then be run.
+### Running the Front-end
+Once the contracts have been succesfully migrated to either the local blockchain using Ganache-cli or onto Ropsten, the front-end can then be run.
 ```
 npm run dev
 ```
 
-The frontend can then be accessed at `http://localhost:3000/`. Please note that the actual port may be incremented by one if you have already actively deployed onto the port.
+The front-nd can then be accessed at `http://localhost:3000/`. Please note that the actual port may be incremented by one if you have already actively deployed onto the port.
 
 #### Testing using Ganache
 If you are connecting with Ganache, be sure to import the Ganache accounts into MetaMask using the generated mnemonic. Please note that with Ganache, Metamask may require a reset of the acccount connected to the local blockchain after the setup to insure the nonce is sync to local blockchain. This is needed to ensure a clean network state - [https://metamask.zendesk.com/hc/en-us/articles/360015488891-Resetting-an-Account]
