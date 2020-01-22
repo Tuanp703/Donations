@@ -88,7 +88,7 @@ truffle migrate --network ropsten
 
 For your convenience, I have also deployed my final version of the contracts at address 0xfdf087e45281Db3067B7933dF41849F746906BC4 of the Ropsten network. The corresponding address can be found [here](/deployed_addresses.txt). You should connect the front-end only after you have successfully migrated the project.
 
-On the Ropsten network, the state variables of the front-end update sporadically, thus you will need to wait more time for LOADING to complete. ![Ropsten Confirmation](/docs/img/Ropsten1.PNG)| ![Ropsten Loading](/docs/img/Ropsten_Loading.PNG)|
+On the Ropsten network, the state variables of the front-end update sporadically (may require a minute or two since Ropsten uses Proof of Work). Accordingly, you will need to wait more time for LOADING to complete. ![Ropsten Confirmation](/docs/img/Ropsten1.PNG)| ![Ropsten Loading](/docs/img/Ropsten_Loading.PNG)|
 
 Occasionally, you may need to force browser refresh yourself if you are impatient like me. However, the dApp should work normally for the Ganache-cli local blockchain and Ropsten.
 
@@ -127,7 +127,7 @@ If you are connecting with Ganache instead of Ganache-cli, be sure to perform th
 
     1. Modify the truffle-config.js file to use 'port: 7545'.
        You will need to compile and redeploy after you have Ganache up and running.
-       
+
     2. Import the Ganache accounts into MetaMask using the generated mnemonic. 
        Please note that with Ganache, Metamask may require a reset of the acccount connected
        to the local blockchain after the setup to insure the nonce is properly synced to the
