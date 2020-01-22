@@ -2,16 +2,29 @@
 
 ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until the amount raised is met or exceeded, the fundraising time limit has been exceeded, or until the smart contract is suspended or end by the owner.
 
-For a video demonstration, refer to the video presentation shown [here](https://1drv.ms/p/s!Athwhc7bxjKBhZMMc7n27yt0hsVL6Q?e=S37rkb). The video file may take a bit of time to download (e.g. over 552 MB) and you need Powerpoint 2016 or later.
+For a video demonstration, refer to the video presentation shown below:
+
+     [DOWNLOAD VIDEO HERE](https://1drv.ms/p/s!Athwhc7bxjKBhZMMc7n27yt0hsVL6Q?e=S37rkb)
+
+The video file may take a bit of time to download (e.g. over 552 MB) and you need Powerpoint 2016 or later.
 
 ![ETHFUNDME](/docs/img/EthFundMe.PNG)
 
 ## Structure
+Donations contract utilized the following:
+
+### Design Patterns
+[Follow this link](/docs/design_pattern_decisions.md) for more information on the design patterns used in this project.
+
+### Security Considerations
+As a security engineer, I took extra care in insuring that the DApp is designed correctly and evaluated to be free from high and critical vulnerabilities.
+[Follow this link](/docs/avoiding_common_attacks.md) for more information on how the DApps avoids common attacks.
+
+### Extending Contracts
 The structure of this decentralized smart contract uses two different smart contracts. The [Donations](/contracts/Donations.sol) contract contains the actual funding functionality. The Donations contract inherits payable beneficiary and owner addresses and setup for the contract from the [FromParent](/contracts/FromParent.sol).
 
+### Usage of Library
 The contract also incorporates SafeMath from OpenZeppelin as library for mathematical operations including Add, Sub, and Div to safeguard against overflows and underflows.
-
-More information on the design decisions of this decentralized application can be found [here](/docs/design_pattern_decisions.md), while information on how common attacks are avoided can be found [here](/docs/avoiding_common_attacks.md).
 
 ## The Process
 ETH Fund Me is a fundraising smart contract where a beneficiary can engage the service (e.g., this smart contract) to raise money in ethers for up to a certain amount specified by the beneficiary. The fundraising cannot start until a beneficiary is selected by paying a commitment fee greater than 10% of the amount to be raised. Only one fundraising can take place at a time. The fundraising will continue until:
