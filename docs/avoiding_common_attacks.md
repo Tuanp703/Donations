@@ -13,9 +13,10 @@ I incorporated SafeMath functions (add, sub, div) from [OpenZeppelin](https://gi
 Resources on a public blockchain are expensive to maintain. Accordingly, we do not want people to setup many fundraising events without having a reasonable chance of attaining the prescribed goal. The process of requiring an escrow of 10% of the planned fundraising amount from the beneficiary reduces chances of possible abuse or spam of the dApp. In many ways this approach is similar to how gas are needed to run transactions on Ethereum blockchain.
 
 ## Automated Security Analysis
-Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized two well-regard automated static and dynamic scanners to further evaluate the security posture of the contracts:
+Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized three well-regarded automated static and dynamic scanners to further evaluate the security posture of the contracts:
     
     1. SmartDec SmartCheck
     2. Chainsecurity Securify
+    3. MythX
 
 Using these scans I am able to adjust and reprogram the contract as needed to eliminate any high or critical vulnerabilities. As of final deployment, there are currently no high or critical vulnerabilities exist in the contract. [Follow this link](/docs/design_pattern_decisions.md#security-analysis) for additional details.

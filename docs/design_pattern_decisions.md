@@ -5,10 +5,11 @@ This file contains an overview of all design patterns used and decisions made du
 My design allows for the contract to operate autonomously and in a decentralized fashion. With exception of the emergency circuit breaker, the contract will handle beneficiary selection, donation collection, and payments to contract owner and beneficiary. I also implemented a self-destruct call which allows the contract to be terminated. This self-destruct is only accessible to the contract owner.
 
 ## Security Analysis
-Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized two well-regard automated static and dynamic scanners to further evaluate the security posture of the contracts:
+Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized two well-regarded automated static and dynamic scanners to further evaluate the security posture of the contracts:
     
     1. SmartDec SmartCheck
     2. Chainsecurity Securify
+    3. MythX
 
 Using these scans I am able to adjust and reprogram the contract as needed to eliminate any high or critical vulnerabilities. As of final deployment, there are currently no high or critical vulnerabilities exist in the contract.
 
@@ -25,6 +26,11 @@ I also submitted the same Donations contract for automated vulnerability analysi
 ![Securify](/docs/img/Securify.PNG)
 
  The [Securify Report](https://securify.chainsecurity.com/report/51de5b47b1ded508b735e3173cf9d26a2ca8c21bc9d07c0d570630f79979e4af) revealed that ten informational warnings exist similar to those previously identified by SmartCheck. Upon additional manual code review, I concluded that no further action was required.
+
+### MythX
+MythX provided limited access to the details of the analysis but I was able to determine the identified findings were also on par with the above scanning results.
+
+![MythX](/docs/img/MythX.PNG)
 
 ## Spamming Prevention
 The issue I noted with traditional ‘go fund me’ applications is that anyone can setup a funding request. As the result, many of these fundme projects just linger and never reach the raised amount, and utimately, end up abandoned. Accordingly they consume and waste valuable resources. By requiring a commitment fee of greater than 10% of the raised amount to be deposited at the start of the fundraising, this approach reduces spamming of the decentralized application similar to how gases are used on Ethereum network.
