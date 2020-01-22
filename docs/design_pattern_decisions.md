@@ -5,7 +5,7 @@ This file contains an overview of all design patterns used and decisions made du
 My design allows for the contract to operate autonomously and in a decentralized fashion. With exception of the emergency circuit breaker, the contract will handle beneficiary selection, donation collection, and payments to contract owner and beneficiary. I also implemented a self-destruct call which allows the contract to be terminated. This self-destruct is only accessible to the contract owner.
 
 ## Security Analysis
-Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized two well-regarded automated static and dynamic scanners to further evaluate the security posture of the contracts:
+Due to the nascent nature of blockchain technology and Solidity, additional reviews were considered to reduce any risks of having high or critical vulnerabilities exist in the contract. Accordingly, I utilized three well-regarded automated static and dynamic scanners to further evaluate the security posture of the contracts:
     
     1. SmartDec SmartCheck
     2. Chainsecurity Securify
