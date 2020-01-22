@@ -4,7 +4,7 @@ ETH Fund Me is a fundraising smart contract where a beneficiary can engage the s
 
 For a video demonstration of the DApp, refer to the video presentation shown below:
 
-[DOWNLOAD VIDEO HERE](https://1drv.ms/p/s!Athwhc7bxjKBhZMMc7n27yt0hsVL6Q?e=S37rkb)
+[download video here](https://1drv.ms/p/s!Athwhc7bxjKBhZMMc7n27yt0hsVL6Q?e=S37rkb)
 
 The video file may take a bit of time to download (e.g. over 552 MB) and you need Powerpoint 2016 or later.
 
