@@ -120,10 +120,13 @@ Once the contracts have been succesfully migrated to either the local blockchain
 npm run dev
 ```
 
-The front-nd can then be accessed at `http://localhost:3000/`. Please note that the actual port may be incremented by one if you have already actively deployed onto the port.
+The front-end can then be accessed at `http://localhost:3000/`. Please note that the actual port may be incremented by one if you have already actively deployed onto the port.
 
 #### Testing using Ganache
-If you are connecting with Ganache, be sure to import the Ganache accounts into MetaMask using the generated mnemonic. Please note that with Ganache, Metamask may require a reset of the acccount connected to the local blockchain after the setup to insure the nonce is sync to local blockchain. This is needed to ensure a clean network state - [https://metamask.zendesk.com/hc/en-us/articles/360015488891-Resetting-an-Account]
+If you are connecting with Ganache instead of Ganache-cli, be sure to perform the following:
+
+    1. modify the truffle-config.js file to use 'port: 7545'. You will need to compile and redeploy after you have Ganache up and running.
+    2. import the Ganache accounts into MetaMask using the generated mnemonic. Please note that with Ganache, Metamask may require a reset of the acccount connected to the local blockchain after the setup to insure the nonce is properly synced to the local blockchain. This is needed to ensure a clean network state - [https://metamask.zendesk.com/hc/en-us/articles/360015488891-Resetting-an-Account]
 
 ## Application Usage
 The application has three sections:
