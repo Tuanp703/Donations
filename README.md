@@ -127,6 +127,7 @@ If you are connecting with Ganache instead of Ganache-cli, be sure to perform th
 
     1. Modify the truffle-config.js file to use 'port: 7545'.
        You will need to compile and redeploy after you have Ganache up and running.
+       
     2. Import the Ganache accounts into MetaMask using the generated mnemonic. 
        Please note that with Ganache, Metamask may require a reset of the acccount connected
        to the local blockchain after the setup to insure the nonce is properly synced to the
