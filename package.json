@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "lite-server",
+    "prod": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
